@@ -1,0 +1,9 @@
+{
+  "provider": "shopify",
+  "features": {
+    "wishlist": true,
+    "customerAuth": true,
+    "cart": true,
+    "customCheckout": true
+  }
+}
