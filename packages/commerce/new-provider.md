@@ -4,17 +4,7 @@
 
 A commerce provider is a headless e-commerce platform that integrates with the [Commerce Framework](./README.md). Right now we have the following providers:
 
-- Local ([packages/local](../local))
 - Shopify ([packages/shopify](../shopify))
-- Swell ([packages/swell](../swell))
-- BigCommerce ([packages/bigcommerce](../bigcommerce))
-- Vendure ([packages/vendure](../vendure))
-- Saleor ([packages/saleor](../saleor))
-- OrderCloud ([packages/ordercloud](../ordercloud))
-- Spree ([packages/spree](../spree))
-- Kibo Commerce ([packages/kibocommerce](../kibocommerce))
-- Commerce.js ([packages/commercejs](../commercejs))
-- SFCC - SalesForce Cloud Commerce ([packages/sfcc](../sfcc))
 
 Adding a commerce provider means adding a new folder in `packages` with a folder structure like the next one:
 
