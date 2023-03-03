@@ -7,7 +7,6 @@ A commerce provider is a headless e-commerce platform that integrates with the [
 - Local ([packages/local](../local))
 - Shopify ([packages/shopify](../shopify))
 - BigCommerce ([packages/bigcommerce](../bigcommerce))
-- Vendure ([packages/vendure](../vendure))
 - Saleor ([packages/saleor](../saleor))
 - OrderCloud ([packages/ordercloud](../ordercloud))
 - Kibo Commerce ([packages/kibocommerce](../kibocommerce))

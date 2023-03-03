@@ -9,7 +9,6 @@ Demo live at: [demo.vercel.store](https://demo.vercel.store/)
 
 - Shopify Demo: https://shopify.vercel.store/
 - BigCommerce Demo: https://bigcommerce.vercel.store/
-- Vendure Demo: https://vendure.vercel.store
 - Saleor Demo: https://saleor.vercel.store/
 - Ordercloud Demo: https://ordercloud.vercel.store/
 - Kibo Commerce Demo: https://kibocommerce.vercel.store/
@@ -41,7 +40,7 @@ pnpm dev # run this command in the site folder
 
 ## Integrations
 
-Next.js Commerce integrates out-of-the-box with BigCommerce, Shopify, Saleor, Vendure and Commerce.js. We plan to support all major ecommerce backends.
+Next.js Commerce integrates out-of-the-box with BigCommerce, Shopify, Saleor and Commerce.js. We plan to support all major ecommerce backends.
 
 ## Considerations
 
