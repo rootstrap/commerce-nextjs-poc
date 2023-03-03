@@ -11,7 +11,6 @@ const core = require('@vercel/commerce/config')
 const PROVIDERS = [
   '@vercel/commerce-local',
   '@vercel/commerce-bigcommerce',
-  '@vercel/commerce-saleor',
   '@vercel/commerce-shopify',
   '@vercel/commerce-ordercloud',
   '@vercel/commerce-kibocommerce',
