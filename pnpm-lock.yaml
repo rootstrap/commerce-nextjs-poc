@@ -450,51 +450,6 @@ importers:
       taskr-swc: link:../taskr-swc
       typescript: 4.8.3
 
-  packages/swell:
-    specifiers:
-      '@taskr/clear': ^1.1.0
-      '@taskr/esnext': ^1.1.0
-      '@taskr/watch': ^1.1.0
-      '@types/js-cookie': ^3.0.2
-      '@types/lodash.debounce': ^4.0.6
-      '@types/node': ^17.0.8
-      '@types/node-fetch': ^2.6.2
-      '@types/react': ^18.0.14
-      '@vercel/commerce': workspace:*
-      js-cookie: ^3.0.1
-      lint-staged: ^12.1.7
-      lodash.debounce: ^4.0.8
-      next: ^13.0.6
-      prettier: ^2.5.1
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      swell-js: ^4.0.0-next.0
-      taskr: ^1.1.0
-      taskr-swc: ^0.0.1
-      typescript: ^4.7.4
-    dependencies:
-      '@vercel/commerce': link:../commerce
-      js-cookie: 3.0.1
-      lodash.debounce: 4.0.8
-      swell-js: 4.0.0-next.0
-    devDependencies:
-      '@taskr/clear': 1.1.0
-      '@taskr/esnext': 1.1.0
-      '@taskr/watch': 1.1.0
-      '@types/js-cookie': 3.0.2
-      '@types/lodash.debounce': 4.0.7
-      '@types/node': 17.0.45
-      '@types/node-fetch': 2.6.2
-      '@types/react': 18.0.20
-      lint-staged: 12.5.0
-      next: 13.0.6_biqbaboplfbrettd7655fr4n2y
-      prettier: 2.7.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      taskr: 1.1.0
-      taskr-swc: link:../taskr-swc
-      typescript: 4.8.3
-
   packages/taskr-swc:
     specifiers:
       '@swc/core': ^1.2.138
@@ -571,7 +526,6 @@ importers:
       '@vercel/commerce-saleor': workspace:*
       '@vercel/commerce-sfcc': workspace:*
       '@vercel/commerce-shopify': workspace:*
-      '@vercel/commerce-swell': workspace:*
       '@vercel/commerce-vendure': workspace:*
       autoprefixer: ^10.4.2
       body-scroll-lock: ^4.0.0-beta.0
@@ -612,7 +566,6 @@ importers:
       '@vercel/commerce-saleor': link:../packages/saleor
       '@vercel/commerce-sfcc': link:../packages/sfcc
       '@vercel/commerce-shopify': link:../packages/shopify
-      '@vercel/commerce-swell': link:../packages/swell
       '@vercel/commerce-vendure': link:../packages/vendure
       autoprefixer: 10.4.10_postcss@8.4.16
       body-scroll-lock: 4.0.0-beta.0
@@ -12443,23 +12396,6 @@ packages:
     dependencies:
       tslib: 2.4.0
     dev: true
-
-  /swell-js/4.0.0-next.0:
-    resolution:
-      {
-        integrity: sha512-OQ1FLft3ruKpQw5P0TiCzs/X2Ma95+Qz+I2Xzs4KC6v+zVaFVUGNs80dQdtjfInisWoFC7iFZF2AITgellVGAg==,
-      }
-    dependencies:
-      '@babel/runtime': 7.4.5
-      deepmerge: 4.2.2
-      isomorphic-fetch: 3.0.0
-      lodash: 4.17.21
-      object-keys-normalizer: 1.0.1
-      object-merge-advanced: 12.0.3
-      qs: 6.7.0
-    transitivePeerDependencies:
-      - encoding
-    dev: false
 
   /swr/1.3.0_react@18.2.0:
     resolution:

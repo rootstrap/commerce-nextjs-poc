@@ -13,7 +13,6 @@ const PROVIDERS = [
   '@vercel/commerce-bigcommerce',
   '@vercel/commerce-saleor',
   '@vercel/commerce-shopify',
-  '@vercel/commerce-swell',
   '@vercel/commerce-vendure',
   '@vercel/commerce-ordercloud',
   '@vercel/commerce-kibocommerce',
@@ -28,8 +27,6 @@ function getProviderName() {
       ? '@vercel/commerce-bigcommerce'
       : process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
       ? '@vercel/commerce-shopify'
-      : process.env.NEXT_PUBLIC_SWELL_STORE_ID
-      ? '@vercel/commerce-swell'
       : '@vercel/commerce-local')
   )
 }
