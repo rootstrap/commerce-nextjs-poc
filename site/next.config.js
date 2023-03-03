@@ -2,7 +2,6 @@ const commerce = require('./commerce.config.json')
 const { withCommerceConfig, getProviderName } = require('./commerce-config')
 
 const provider = commerce.provider || getProviderName()
-const isShopify = provider === '@vercel/commerce-shopify'
 
 module.exports = withCommerceConfig({
   commerce,
@@ -12,7 +11,7 @@ module.exports = withCommerceConfig({
   },
   rewrites() {
     return [
-      isShopify && {
+      {
         source: '/checkout',
         destination: '/api/commerce/checkout',
       },
