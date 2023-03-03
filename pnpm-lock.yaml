@@ -168,59 +168,6 @@ importers:
       taskr-swc: link:../taskr-swc
       typescript: 4.8.3
 
-  packages/kibocommerce:
-    specifiers:
-      '@babel/core': ^7.20.5
-      '@graphql-codegen/cli': ^2.7.0
-      '@graphql-codegen/schema-ast': ^2.4.1
-      '@graphql-codegen/typescript': ^2.4.2
-      '@graphql-codegen/typescript-operations': ^2.2.2
-      '@taskr/clear': ^1.1.0
-      '@taskr/esnext': ^1.1.0
-      '@taskr/watch': ^1.1.0
-      '@types/lodash.debounce': ^4.0.6
-      '@types/node': ^17.0.8
-      '@types/node-fetch': 2.6.2
-      '@types/react': ^18.0.14
-      '@vercel/commerce': workspace:*
-      graphql: ^16.0.0
-      lint-staged: ^12.1.7
-      lodash.debounce: ^4.0.8
-      next: ^13.0.6
-      prettier: ^2.5.1
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      taskr: ^1.1.0
-      taskr-swc: ^0.0.1
-      ts-node: ^10.9.1
-      typescript: ^4.7.4
-    dependencies:
-      '@vercel/commerce': link:../commerce
-      lodash.debounce: 4.0.8
-    devDependencies:
-      '@babel/core': 7.20.5
-      '@graphql-codegen/cli': 2.12.0_5nhrphdxro5xxa2f5vmz5votda
-      '@graphql-codegen/schema-ast': 2.5.1_graphql@16.6.0
-      '@graphql-codegen/typescript': 2.7.3_graphql@16.6.0
-      '@graphql-codegen/typescript-operations': 2.5.3_graphql@16.6.0
-      '@taskr/clear': 1.1.0
-      '@taskr/esnext': 1.1.0
-      '@taskr/watch': 1.1.0
-      '@types/lodash.debounce': 4.0.7
-      '@types/node': 17.0.45
-      '@types/node-fetch': 2.6.2
-      '@types/react': 18.0.20
-      graphql: 16.6.0
-      lint-staged: 12.5.0
-      next: 13.0.6_672uxklweod7ene3nqtsh262ca
-      prettier: 2.7.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      taskr: 1.1.0
-      taskr-swc: link:../taskr-swc
-      ts-node: 10.9.1_rb7lfb2dlgdf5f7m6mcvvespxa
-      typescript: 4.8.3
-
   packages/local:
     specifiers:
       '@taskr/clear': ^1.1.0
@@ -379,7 +326,6 @@ importers:
       '@vercel/commerce': workspace:*
       '@vercel/commerce-bigcommerce': workspace:*
       '@vercel/commerce-commercejs': workspace:*
-      '@vercel/commerce-kibocommerce': workspace:*
       '@vercel/commerce-local': workspace:*
       '@vercel/commerce-ordercloud': workspace:*
       '@vercel/commerce-shopify': workspace:*
@@ -416,7 +362,6 @@ importers:
       '@vercel/commerce': link:../packages/commerce
       '@vercel/commerce-bigcommerce': link:../packages/bigcommerce
       '@vercel/commerce-commercejs': link:../packages/commercejs
-      '@vercel/commerce-kibocommerce': link:../packages/kibocommerce
       '@vercel/commerce-local': link:../packages/local
       '@vercel/commerce-ordercloud': link:../packages/ordercloud
       '@vercel/commerce-shopify': link:../packages/shopify

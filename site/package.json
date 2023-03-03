@@ -18,7 +18,6 @@
     "@vercel/commerce": "workspace:*",
     "@vercel/commerce-bigcommerce": "workspace:*",
     "@vercel/commerce-commercejs": "workspace:*",
-    "@vercel/commerce-kibocommerce": "workspace:*",
     "@vercel/commerce-local": "workspace:*",
     "@vercel/commerce-ordercloud": "workspace:*",
     "@vercel/commerce-shopify": "workspace:*",

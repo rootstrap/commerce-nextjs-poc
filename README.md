@@ -10,7 +10,6 @@ Demo live at: [demo.vercel.store](https://demo.vercel.store/)
 - Shopify Demo: https://shopify.vercel.store/
 - BigCommerce Demo: https://bigcommerce.vercel.store/
 - Ordercloud Demo: https://ordercloud.vercel.store/
-- Kibo Commerce Demo: https://kibocommerce.vercel.store/
 - Commerce.js Demo: https://commercejs.vercel.store/
 - SalesForce Cloud Commerce Demo: https://salesforce-cloud-commerce.vercel.store/
 
