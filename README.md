@@ -6,7 +6,6 @@ Start right now at [nextjs.org/commerce](https://nextjs.org/commerce)
 Demo live at: [demo.vercel.store](https://demo.vercel.store/)
 
 - Shopify Demo: https://shopify.vercel.store/
-- Commerce.js Demo: https://commercejs.vercel.store/
 - SalesForce Cloud Commerce Demo: https://salesforce-cloud-commerce.vercel.store/
 
 ## Run minimal version locally

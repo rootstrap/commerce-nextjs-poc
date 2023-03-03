@@ -8,11 +8,7 @@ const merge = require('deepmerge')
 const prettier = require('prettier')
 const core = require('@vercel/commerce/config')
 
-const PROVIDERS = [
-  '@vercel/commerce-local',
-  '@vercel/commerce-shopify',
-  '@vercel/commerce-commercejs',
-]
+const PROVIDERS = ['@vercel/commerce-local', '@vercel/commerce-shopify']
 
 function getProviderName() {
   return (

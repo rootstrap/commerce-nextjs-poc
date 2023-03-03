@@ -6,7 +6,6 @@ A commerce provider is a headless e-commerce platform that integrates with the [
 
 - Local ([packages/local](../local))
 - Shopify ([packages/shopify](../shopify))
-- Commerce.js ([packages/commercejs](../commercejs))
 
 Adding a commerce provider means adding a new folder in `packages` with a folder structure like the next one:
 
