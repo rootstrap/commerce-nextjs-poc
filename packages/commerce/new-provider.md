@@ -11,7 +11,6 @@ A commerce provider is a headless e-commerce platform that integrates with the [
 - Vendure ([packages/vendure](../vendure))
 - Saleor ([packages/saleor](../saleor))
 - OrderCloud ([packages/ordercloud](../ordercloud))
-- Spree ([packages/spree](../spree))
 - Kibo Commerce ([packages/kibocommerce](../kibocommerce))
 - Commerce.js ([packages/commercejs](../commercejs))
 - SFCC - SalesForce Cloud Commerce ([packages/sfcc](../sfcc))

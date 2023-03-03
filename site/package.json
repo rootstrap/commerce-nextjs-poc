@@ -24,7 +24,6 @@
     "@vercel/commerce-saleor": "workspace:*",
     "@vercel/commerce-sfcc": "workspace:*",
     "@vercel/commerce-shopify": "workspace:*",
-    "@vercel/commerce-spree": "workspace:*",
     "@vercel/commerce-swell": "workspace:*",
     "@vercel/commerce-vendure": "workspace:*",
     "autoprefixer": "^10.4.2",

@@ -17,7 +17,6 @@ const PROVIDERS = [
   '@vercel/commerce-vendure',
   '@vercel/commerce-ordercloud',
   '@vercel/commerce-kibocommerce',
-  '@vercel/commerce-spree',
   '@vercel/commerce-commercejs',
   '@vercel/commerce-sfcc',
 ]
