@@ -4,7 +4,6 @@
 
 A commerce provider is a headless e-commerce platform that integrates with the [Commerce Framework](./README.md). Right now we have the following providers:
 
-- Local ([packages/local](../local))
 - Shopify ([packages/shopify](../shopify))
 
 Adding a commerce provider means adding a new folder in `packages` with a folder structure like the next one:

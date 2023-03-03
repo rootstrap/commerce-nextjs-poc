@@ -58,41 +58,6 @@ importers:
       taskr-swc: link:../taskr-swc
       typescript: 4.8.3
 
-  packages/local:
-    specifiers:
-      '@taskr/clear': ^1.1.0
-      '@taskr/esnext': ^1.1.0
-      '@taskr/watch': ^1.1.0
-      '@types/node': ^17.0.8
-      '@types/node-fetch': 2.6.2
-      '@types/react': ^18.0.14
-      '@vercel/commerce': workspace:*
-      lint-staged: ^12.1.7
-      next: ^13.0.6
-      prettier: ^2.5.1
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      taskr: ^1.1.0
-      taskr-swc: ^0.0.1
-      typescript: ^4.7.4
-    dependencies:
-      '@vercel/commerce': link:../commerce
-    devDependencies:
-      '@taskr/clear': 1.1.0
-      '@taskr/esnext': 1.1.0
-      '@taskr/watch': 1.1.0
-      '@types/node': 17.0.45
-      '@types/node-fetch': 2.6.2
-      '@types/react': 18.0.20
-      lint-staged: 12.5.0
-      next: 13.0.6_biqbaboplfbrettd7655fr4n2y
-      prettier: 2.7.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      taskr: 1.1.0
-      taskr-swc: link:../taskr-swc
-      typescript: 4.8.3
-
   packages/shopify:
     specifiers:
       '@babel/core': ^7.20.5
@@ -171,7 +136,6 @@ importers:
       '@types/react': ^18.0.20
       '@types/react-dom': ^18.0.6
       '@vercel/commerce': workspace:*
-      '@vercel/commerce-local': workspace:*
       '@vercel/commerce-shopify': workspace:*
       autoprefixer: ^10.4.2
       body-scroll-lock: ^4.0.0-beta.0
@@ -204,7 +168,6 @@ importers:
       '@radix-ui/react-dropdown-menu': 1.0.0_7ey2zzynotv32rpkwno45fsx4e
       '@react-spring/web': 9.5.4_biqbaboplfbrettd7655fr4n2y
       '@vercel/commerce': link:../packages/commerce
-      '@vercel/commerce-local': link:../packages/local
       '@vercel/commerce-shopify': link:../packages/shopify
       autoprefixer: 10.4.10_postcss@8.4.16
       body-scroll-lock: 4.0.0-beta.0
