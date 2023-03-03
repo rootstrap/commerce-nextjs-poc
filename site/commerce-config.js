@@ -12,7 +12,6 @@ const PROVIDERS = [
   '@vercel/commerce-local',
   '@vercel/commerce-bigcommerce',
   '@vercel/commerce-shopify',
-  '@vercel/commerce-ordercloud',
   '@vercel/commerce-commercejs',
 ]
 
