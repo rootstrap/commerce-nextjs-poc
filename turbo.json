@@ -8,11 +8,7 @@
     },
     "next-commerce#build": {
       "dependsOn": ["^build"],
-      "env": [
-        "COMMERCE_PROVIDER",
-        "BIGCOMMERCE_STOREFRONT_API_URL",
-        "NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN"
-      ],
+      "env": ["COMMERCE_PROVIDER", "NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN"],
       "outputs": [".next/**"]
     },
     "test": {

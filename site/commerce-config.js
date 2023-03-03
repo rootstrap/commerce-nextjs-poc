@@ -10,7 +10,6 @@ const core = require('@vercel/commerce/config')
 
 const PROVIDERS = [
   '@vercel/commerce-local',
-  '@vercel/commerce-bigcommerce',
   '@vercel/commerce-shopify',
   '@vercel/commerce-commercejs',
 ]
@@ -18,9 +17,7 @@ const PROVIDERS = [
 function getProviderName() {
   return (
     process.env.COMMERCE_PROVIDER ||
-    (process.env.BIGCOMMERCE_STOREFRONT_API_URL
-      ? '@vercel/commerce-bigcommerce'
-      : process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
+    (process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN
       ? '@vercel/commerce-shopify'
       : '@vercel/commerce-local')
   )

@@ -21,7 +21,7 @@ body:
   - type: input
     attributes:
       label: What Provider are you using?
-      description: 'Please specify the provider package name. For example: `bigcommerce`'
+      description: 'Please specify the provider package name. For example: `shopify`'
   - type: input
     attributes:
       label: What browser are you using? (if relevant)

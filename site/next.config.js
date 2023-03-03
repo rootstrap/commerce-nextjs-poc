@@ -2,7 +2,6 @@ const commerce = require('./commerce.config.json')
 const { withCommerceConfig, getProviderName } = require('./commerce-config')
 
 const provider = commerce.provider || getProviderName()
-const isBC = provider === '@vercel/commerce-bigcommerce'
 const isShopify = provider === '@vercel/commerce-shopify'
 
 module.exports = withCommerceConfig({
@@ -13,15 +12,9 @@ module.exports = withCommerceConfig({
   },
   rewrites() {
     return [
-      (isBC || isShopify) && {
+      isShopify && {
         source: '/checkout',
         destination: '/api/commerce/checkout',
-      },
-      // The logout is also an action so this route is not required, but it's also another way
-      // you can allow a logout!
-      isBC && {
-        source: '/logout',
-        destination: '/api/logout?redirect_to=/',
       },
     ].filter(Boolean)
   },

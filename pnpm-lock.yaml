@@ -11,63 +11,6 @@ importers:
       prettier: 2.7.1
       turbo: 1.4.6
 
-  packages/bigcommerce:
-    specifiers:
-      '@cfworker/uuid': ^1.12.4
-      '@taskr/clear': ^1.1.0
-      '@taskr/esnext': ^1.1.0
-      '@taskr/watch': ^1.1.0
-      '@tsndr/cloudflare-worker-jwt': ^2.1.0
-      '@types/cookie': ^0.4.1
-      '@types/jsonwebtoken': ^8.5.7
-      '@types/lodash.debounce': ^4.0.6
-      '@types/node': ^17.0.8
-      '@types/node-fetch': ^2.6.2
-      '@types/react': ^18.0.14
-      '@vercel/commerce': workspace:*
-      cookie: ^0.4.1
-      immutability-helper: ^3.1.1
-      js-cookie: ^3.0.1
-      jsonwebtoken: ^8.5.1
-      lint-staged: ^12.1.7
-      lodash.debounce: ^4.0.8
-      next: ^13.0.6
-      prettier: ^2.5.1
-      react: ^18.2.0
-      react-dom: ^18.2.0
-      taskr: ^1.1.0
-      taskr-swc: ^0.0.1
-      typescript: ^4.7.4
-      uuidv4: ^6.2.13
-    dependencies:
-      '@cfworker/uuid': 1.12.4
-      '@tsndr/cloudflare-worker-jwt': 2.1.0
-      '@vercel/commerce': link:../commerce
-      cookie: 0.4.2
-      immutability-helper: 3.1.1
-      js-cookie: 3.0.1
-      jsonwebtoken: 8.5.1
-      lodash.debounce: 4.0.8
-      uuidv4: 6.2.13
-    devDependencies:
-      '@taskr/clear': 1.1.0
-      '@taskr/esnext': 1.1.0
-      '@taskr/watch': 1.1.0
-      '@types/cookie': 0.4.1
-      '@types/jsonwebtoken': 8.5.9
-      '@types/lodash.debounce': 4.0.7
-      '@types/node': 17.0.45
-      '@types/node-fetch': 2.6.2
-      '@types/react': 18.0.20
-      lint-staged: 12.5.0
-      next: 13.0.6_biqbaboplfbrettd7655fr4n2y
-      prettier: 2.7.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-      taskr: 1.1.0
-      taskr-swc: link:../taskr-swc
-      typescript: 4.8.3
-
   packages/commerce:
     specifiers:
       '@taskr/clear': ^1.1.0
@@ -281,7 +224,6 @@ importers:
       '@types/react': ^18.0.20
       '@types/react-dom': ^18.0.6
       '@vercel/commerce': workspace:*
-      '@vercel/commerce-bigcommerce': workspace:*
       '@vercel/commerce-commercejs': workspace:*
       '@vercel/commerce-local': workspace:*
       '@vercel/commerce-shopify': workspace:*
@@ -316,7 +258,6 @@ importers:
       '@radix-ui/react-dropdown-menu': 1.0.0_7ey2zzynotv32rpkwno45fsx4e
       '@react-spring/web': 9.5.4_biqbaboplfbrettd7655fr4n2y
       '@vercel/commerce': link:../packages/commerce
-      '@vercel/commerce-bigcommerce': link:../packages/bigcommerce
       '@vercel/commerce-commercejs': link:../packages/commercejs
       '@vercel/commerce-local': link:../packages/local
       '@vercel/commerce-shopify': link:../packages/shopify
