@@ -19,7 +19,7 @@ export default function MenuSidebarView({
             <li className={s.item} onClick={() => closeSidebar()}>
               <Link href="/search">All</Link>
             </li>
-            {links.map((l: any) => (
+            {links.map((l) => (
               <li
                 key={l.href}
                 className={s.item}

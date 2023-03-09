@@ -4,8 +4,8 @@ import { Cross, Plus, Minus } from '@components/icons'
 import cn from 'clsx'
 export interface QuantityProps {
   value: number
-  increase: () => any
-  decrease: () => any
+  increase: () => void
+  decrease: () => void
   handleRemove: React.MouseEventHandler<HTMLButtonElement>
   handleChange: React.ChangeEventHandler<HTMLInputElement>
   max?: number
@@ -27,9 +27,7 @@ const Quantity: FC<QuantityProps> = ({
       <label className="w-full border-accent-2 border ml-2">
         <input
           className={s.input}
-          onChange={(e) =>
-            Number(e.target.value) < max + 1 ? handleChange(e) : () => {}
-          }
+          onChange={(e) => Number(e.target.value) < max + 1 && handleChange(e)}
           value={value}
           type="number"
           max={max}

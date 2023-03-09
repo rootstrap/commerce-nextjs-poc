@@ -67,16 +67,18 @@ const CheckoutSidebarView: FC = () => {
           onClick={() => setSidebarView('SHIPPING_VIEW')}
         />
 
-        <ul className={s.lineItemsList}>
-          {cartData!.lineItems.map((item: any) => (
-            <CartItem
-              key={item.id}
-              item={item}
-              currencyCode={cartData!.currency.code}
-              variant="display"
-            />
-          ))}
-        </ul>
+        {cartData && (
+          <ul className={s.lineItemsList}>
+            {cartData.lineItems.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                currencyCode={cartData.currency.code}
+                variant="display"
+              />
+            ))}
+          </ul>
+        )}
       </div>
 
       <form

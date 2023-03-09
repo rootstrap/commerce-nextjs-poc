@@ -39,6 +39,7 @@ const initialState: State = {
   addressFields: {} as AddressFields,
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const CheckoutContext = createContext<State | any>(initialState)
 
 CheckoutContext.displayName = 'CheckoutContext'

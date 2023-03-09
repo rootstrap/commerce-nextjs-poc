@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, RefObject } from 'react'
 import { tabbable } from 'tabbable'
 
@@ -31,7 +32,7 @@ export default function FocusTrap({ children, focusFirst = false }: Props) {
     // Try to find focusable elements, if match then focus
     // Up to 6 seconds of load time threshold
     let match = false
-    let end = 60 // Try to find match at least n times
+    const end = 60 // Try to find match at least n times
     let i = 0
     const timer = setInterval(() => {
       if (!match !== i > end) {

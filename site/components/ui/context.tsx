@@ -60,6 +60,7 @@ type MODAL_VIEWS =
 
 type SIDEBAR_VIEWS = 'CART_VIEW' | 'CHECKOUT_VIEW' | 'PAYMENT_METHOD_VIEW'
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const UIContext = React.createContext<State | any>(initialState)
 
 UIContext.displayName = 'UIContext'

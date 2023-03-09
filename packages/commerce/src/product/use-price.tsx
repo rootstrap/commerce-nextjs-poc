@@ -47,7 +47,7 @@ export default function usePrice(
   data?: {
     amount: number
     baseAmount?: number
-    currencyCode: string
+    currencyCode?: string
   } | null
 ) {
   const { amount, baseAmount, currencyCode } = data ?? {}

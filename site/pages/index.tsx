@@ -39,7 +39,7 @@ export default function Home({
   return (
     <>
       <Grid variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
+        {products.slice(0, 3).map((product, i) => (
           <ProductCard
             key={product.id}
             product={product}
@@ -53,7 +53,7 @@ export default function Home({
         ))}
       </Grid>
       <Marquee variant="secondary">
-        {products.slice(0, 3).map((product: any, i: number) => (
+        {products.slice(0, 3).map((product) => (
           <ProductCard key={product.id} product={product} variant="slim" />
         ))}
       </Marquee>
@@ -62,7 +62,7 @@ export default function Home({
         description="Cupcake ipsum dolor sit amet lemon drops pastry cotton candy. Sweet carrot cake macaroon bonbon croissant fruitcake jujubes macaroon oat cake. Soufflé bonbon caramels jelly beans. Tiramisu sweet roll cheesecake pie carrot cake. "
       />
       <Grid layout="B" variant="filled">
-        {products.slice(0, 3).map((product: any, i: number) => (
+        {products.slice(0, 3).map((product, i) => (
           <ProductCard
             key={product.id}
             product={product}
@@ -75,7 +75,7 @@ export default function Home({
         ))}
       </Grid>
       <Marquee>
-        {products.slice(3).map((product: any, i: number) => (
+        {products.slice(3).map((product) => (
           <ProductCard key={product.id} product={product} variant="slim" />
         ))}
       </Marquee>

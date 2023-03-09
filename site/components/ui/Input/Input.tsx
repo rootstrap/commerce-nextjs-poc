@@ -1,14 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import cn from 'clsx'
 import s from './Input.module.css'
 import React, { InputHTMLAttributes } from 'react'
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string
-  onChange?: (...args: any[]) => any
+  onChange?: (...args: any[]) => void | null
 }
 
 const Input: React.FC<InputProps> = (props) => {
-  const { className, children, onChange, ...rest } = props
+  const { className, onChange, ...rest } = props
 
   const rootClassName = cn(s.root, {}, className)
 

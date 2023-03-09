@@ -16,6 +16,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 const Noop: FC<{ children?: ReactNode }> = ({ children }) => <>{children}</>
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const Layout = (Component as any).Layout || Noop
   const [queryClient] = useState(() => new QueryClient())
 
