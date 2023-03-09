@@ -38,7 +38,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
                   <div key={image.url} className={s.imageContainer}>
                     <Image
                       className={s.img}
-                      src={image.url!}
+                      src={image.url}
                       alt={image.alt || 'Product Image'}
                       width={600}
                       height={600}
@@ -95,7 +95,7 @@ const ProductView: FC<ProductViewProps> = ({ product, relatedProducts }) => {
           description: product.description,
           images: [
             {
-              url: product.images[0]?.url!,
+              url: product.images[0]?.url,
               width: '800',
               height: '600',
               alt: product.name,

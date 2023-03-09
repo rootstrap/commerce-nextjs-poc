@@ -12,7 +12,6 @@ import s from './Footer.module.css'
 
 interface Props {
   className?: string
-  children?: any
   pages?: Page[]
 }
 

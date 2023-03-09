@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, {
   FunctionComponent,
   JSXElementConstructor,
@@ -10,9 +11,9 @@ interface TextProps {
   variant?: Variant
   className?: string
   style?: CSSProperties
-  children?: React.ReactNode | any
+  children?: React.ReactNode
   html?: string
-  onClick?: () => any
+  onClick?: () => void
 }
 
 type Variant = 'heading' | 'body' | 'pageHeading' | 'sectionHeading'

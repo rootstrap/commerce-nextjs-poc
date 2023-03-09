@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { FC, useState } from 'react'
 import cn from 'clsx'
 import { useUI } from '@components/ui'
@@ -33,6 +34,7 @@ const WishlistButton: FC<Props> = ({
     (item) => item.productId === productId && item.variantId === variant.id
   )
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleWishlistChange = async (e: any) => {
     e.preventDefault()
 
@@ -48,11 +50,11 @@ const WishlistButton: FC<Props> = ({
 
     try {
       if (itemInWishlist) {
-        await removeItem({ id: itemInWishlist.id! })
+        await removeItem({ id: itemInWishlist.id })
       } else {
         await addItem({
           productId,
-          variantId: variant?.id!,
+          variantId: variant?.id,
         })
       }
 

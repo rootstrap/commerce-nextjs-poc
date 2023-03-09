@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
 import getSlug from './get-slug'
 
@@ -12,7 +13,7 @@ export function useSearchMeta(asPath: string) {
     const parts = path.split('/')
 
     let c = parts[2]
-    let b = parts[3]
+    const b = parts[3]
 
     if (c === 'designers') {
       c = parts[4]

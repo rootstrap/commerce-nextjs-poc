@@ -64,6 +64,7 @@ const CartItem = ({
   }
 
   // TODO: Add a type for this
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const options = (item as any).options
 
   useEffect(() => {

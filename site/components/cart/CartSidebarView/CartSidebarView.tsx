@@ -78,15 +78,17 @@ const CartSidebarView: FC = () => {
                 My Cart
               </Text>
             </Link>
-            <ul className={s.lineItemsList}>
-              {data!.lineItems.map((item: any) => (
-                <CartItem
-                  key={item.id}
-                  item={item}
-                  currencyCode={data!.currency.code}
-                />
-              ))}
-            </ul>
+            {data && (
+              <ul className={s.lineItemsList}>
+                {data.lineItems.map((item) => (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    currencyCode={data.currency.code}
+                  />
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className="flex-shrink-0 px-6 py-6 sm:px-6 sticky z-20 bottom-0 w-full right-0 left-0 bg-accent-0 border-t text-sm">

@@ -5,9 +5,7 @@ import { useUI } from '@components/ui/context'
 import { Logo, Button, Input } from '@components/ui'
 import useSignup from '@framework/auth/use-signup'
 
-interface Props {}
-
-const SignUpView: FC<Props> = () => {
+const SignUpView: FC = () => {
   // Form State
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -42,7 +40,7 @@ const SignUpView: FC<Props> = () => {
     } catch ({ errors }) {
       console.error(errors)
       if (errors instanceof Array) {
-        setMessage(errors.map((e: any) => e.message).join('<br/>'))
+        setMessage(errors.map((e) => e.message).join('<br/>'))
       } else {
         setMessage('Unexpected error')
       }

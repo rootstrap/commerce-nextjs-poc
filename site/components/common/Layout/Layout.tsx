@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import cn from 'clsx'
 import s from './Layout.module.css'
 import dynamic from 'next/dynamic'

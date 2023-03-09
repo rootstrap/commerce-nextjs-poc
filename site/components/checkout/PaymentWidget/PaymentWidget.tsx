@@ -3,7 +3,7 @@ import s from './PaymentWidget.module.css'
 import { ChevronRight, CreditCard, Check } from '@components/icons'
 
 interface ComponentProps {
-  onClick?: () => any
+  onClick?: () => void
   isValid?: boolean
 }
 

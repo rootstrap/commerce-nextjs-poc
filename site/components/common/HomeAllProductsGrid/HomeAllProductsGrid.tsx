@@ -26,7 +26,7 @@ const HomeAllProductsGrid: FC<Props> = ({
             <li className="py-1 text-base font-bold tracking-wide">
               <Link href={getCategoryPath('')}>All Categories</Link>
             </li>
-            {categories?.map((cat: any) => (
+            {categories?.map((cat) => (
               <li key={cat.path} className="py-1 text-accent-8 text-base">
                 <Link href={getCategoryPath(cat.path)}>{cat.name}</Link>
               </li>

@@ -3,7 +3,7 @@ import s from './ShippingWidget.module.css'
 import { ChevronRight, MapPin, Check } from '@components/icons'
 
 interface ComponentProps {
-  onClick?: () => any
+  onClick?: () => void
   isValid?: boolean
 }
 

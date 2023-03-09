@@ -6,7 +6,6 @@ import Button, { ButtonProps } from '@components/ui/Button'
 import { isDark } from '@lib/colors'
 interface SwatchProps {
   active?: boolean
-  children?: any
   className?: string
   variant?: 'size' | 'color' | string
   color?: string

@@ -5,6 +5,7 @@ import { default as FastMarquee } from 'react-fast-marquee'
 
 interface MarqueeProps {
   className?: string
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children?: ReactNode[] | Component[] | any[]
   variant?: 'primary' | 'secondary'
 }

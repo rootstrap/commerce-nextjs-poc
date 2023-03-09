@@ -1,4 +1,5 @@
-import { FC, useState } from 'react'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { useState } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -23,7 +24,7 @@ const WishlistCard: React.FC<{
   const { price } = usePrice({
     amount: product.price?.value,
     baseAmount: product.price?.retailPrice,
-    currencyCode: product.price?.currencyCode!,
+    currencyCode: product.price?.currencyCode,
   })
   // @ts-ignore Wishlist is not always enabled
   const removeItem = useRemoveItem({ wishlist: { includeProducts: true } })

@@ -43,7 +43,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
 
   const { pathname, category, brand } = useSearchMeta(asPath)
 
-  const activeCategory = categories.find((cat: any) => cat.slug === category)
+  const activeCategory = categories.find((cat) => cat.slug === category)
   const activeBrand = brands.find((b: Brand) => b.slug === brand)
 
   const { data, error } = useSearch({
@@ -58,6 +58,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
     return <ErrorMessage error={error} />
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleClick = (event: any, filter: string) => {
     if (filter !== activeFilter) {
       setToggleFilter(true)
@@ -137,7 +138,7 @@ export default function Search({ categories, brands }: SearchPropsType) {
                         </a>
                       </Link>
                     </li>
-                    {categories.map((cat: any) => (
+                    {categories.map((cat) => (
                       <li
                         key={cat.path}
                         className={cn(
