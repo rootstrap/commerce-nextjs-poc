@@ -1,0 +1,24 @@
+query getProducts {
+  products(first: 25) {
+    edges {
+      node {
+        id
+        title
+        handle
+        priceRange {
+          minVariantPrice {
+            amount
+          }
+        }
+        images(first: 5) {
+          edges {
+            node {
+              originalSrc
+              altText
+            }
+          }
+        }
+      }
+    }
+  }
+}
