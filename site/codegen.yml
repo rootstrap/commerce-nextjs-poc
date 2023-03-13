@@ -1,5 +1,5 @@
 overwrite: true
-schema: './shopify/schema.gql'
+schema: './shopify/schema.json'
 documents: './shopify/graphql/**/*.graphql'
 watch: true
 generates:

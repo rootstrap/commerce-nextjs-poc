@@ -1,13 +1,13 @@
 import { QueryClient, dehydrate } from '@tanstack/react-query'
 import { client } from '@shopify/client'
-import { useGetProductsQuery } from '@shopify/generated/graphql'
+import { useGetAllProductsQuery } from '@shopify/generated/graphql'
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
 
   await queryClient.fetchQuery(
-    useGetProductsQuery.getKey(),
-    useGetProductsQuery.fetcher(client)
+    useGetAllProductsQuery.getKey(),
+    useGetAllProductsQuery.fetcher(client)
   )
   return {
     props: {
@@ -17,7 +17,7 @@ export async function getStaticProps() {
 }
 
 export default function Test() {
-  const { data, isLoading } = useGetProductsQuery(client)
+  const { data, isLoading } = useGetAllProductsQuery(client)
 
   if (isLoading) {
     return <h2>Loading...</h2>
