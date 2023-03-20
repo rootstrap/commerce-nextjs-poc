@@ -148,7 +148,7 @@ export function normalizeCart(checkout: Checkout): Cart {
   }
 }
 
-function normalizeLineItem({
+export function normalizeLineItem({
   node: { id, title, variant, quantity },
 }: CheckoutLineItemEdge): LineItem {
   return {
@@ -162,7 +162,10 @@ function normalizeLineItem({
       sku: variant?.sku ?? '',
       name: variant?.title!,
       image: {
-        url: variant?.image?.url || '/product-img-placeholder.svg',
+        url:
+          variant?.image?.url ||
+          variant?.image?.src ||
+          '/product-img-placeholder.svg',
       },
       requiresShipping: variant?.requiresShipping ?? false,
       price: variant?.priceV2?.amount,
