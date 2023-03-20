@@ -1,0 +1,49 @@
+query getCart {
+  cart(id: "gid://shopify/Cart/c1-82b4f70c06ce27b796fe791b161de36c") {
+    id
+    lines(first: 10) {
+      edges {
+        node {
+          id
+          merchandise {
+            ... on ProductVariant {
+              id
+              image {
+                src
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              title
+              compareAtPriceV2 {
+                amount
+                currencyCode
+              }
+            }
+          }
+          quantity
+        }
+      }
+    }
+    totalQuantity
+    cost {
+      totalAmount {
+        amount
+        currencyCode
+      }
+      subtotalAmount {
+        amount
+        currencyCode
+      }
+      totalTaxAmount {
+        amount
+        currencyCode
+      }
+      totalDutyAmount {
+        amount
+        currencyCode
+      }
+    }
+  }
+}

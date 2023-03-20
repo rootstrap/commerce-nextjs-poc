@@ -7116,6 +7116,11 @@ export type GetAllProductsQueryVariables = Exact<{
 
 export type GetAllProductsQuery = { __typename?: 'QueryRoot', products: { __typename?: 'ProductConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean }, edges: Array<{ __typename?: 'ProductEdge', node: { __typename?: 'Product', id: string, title: string, vendor: string, handle: string, priceRange: { __typename?: 'ProductPriceRange', minVariantPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } }, images: { __typename?: 'ImageConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean }, edges: Array<{ __typename?: 'ImageEdge', node: { __typename?: 'Image', url: any, altText?: string | null, width?: number | null, height?: number | null } }> } } }> } };
 
+export type GetCartQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCartQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, totalQuantity: number, lines: { __typename?: 'CartLineConnection', edges: Array<{ __typename?: 'CartLineEdge', node: { __typename?: 'CartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, title: string, image?: { __typename?: 'Image', src: any } | null, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, compareAtPriceV2?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } }> }, cost: { __typename?: 'CartCost', totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalTaxAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, totalDutyAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } | null };
+
 export type IntrospectionQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -7269,6 +7274,96 @@ useInfiniteGetAllProductsQuery.getKey = (variables?: GetAllProductsQueryVariable
 ;
 
 useGetAllProductsQuery.fetcher = (client: GraphQLClient, variables?: GetAllProductsQueryVariables, headers?: RequestInit['headers']) => fetcher<GetAllProductsQuery, GetAllProductsQueryVariables>(client, GetAllProductsDocument, variables, headers);
+export const GetCartDocument = /*#__PURE__*/ `
+    query getCart {
+  cart(id: "gid://shopify/Cart/c1-82b4f70c06ce27b796fe791b161de36c") {
+    id
+    lines(first: 10) {
+      edges {
+        node {
+          id
+          merchandise {
+            ... on ProductVariant {
+              id
+              image {
+                src
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              title
+              compareAtPriceV2 {
+                amount
+                currencyCode
+              }
+            }
+          }
+          quantity
+        }
+      }
+    }
+    totalQuantity
+    cost {
+      totalAmount {
+        amount
+        currencyCode
+      }
+      subtotalAmount {
+        amount
+        currencyCode
+      }
+      totalTaxAmount {
+        amount
+        currencyCode
+      }
+      totalDutyAmount {
+        amount
+        currencyCode
+      }
+    }
+  }
+}
+    `;
+export const useGetCartQuery = <
+      TData = GetCartQuery,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables?: GetCartQueryVariables,
+      options?: UseQueryOptions<GetCartQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<GetCartQuery, TError, TData>(
+      variables === undefined ? ['getCart'] : ['getCart', variables],
+      fetcher<GetCartQuery, GetCartQueryVariables>(client, GetCartDocument, variables, headers),
+      options
+    );
+
+useGetCartQuery.getKey = (variables?: GetCartQueryVariables) => variables === undefined ? ['getCart'] : ['getCart', variables];
+;
+
+export const useInfiniteGetCartQuery = <
+      TData = GetCartQuery,
+      TError = unknown
+    >(
+      pageParamKey: keyof GetCartQueryVariables,
+      client: GraphQLClient,
+      variables?: GetCartQueryVariables,
+      options?: UseInfiniteQueryOptions<GetCartQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useInfiniteQuery<GetCartQuery, TError, TData>(
+      variables === undefined ? ['getCart.infinite'] : ['getCart.infinite', variables],
+      (metaData) => fetcher<GetCartQuery, GetCartQueryVariables>(client, GetCartDocument, {...variables, ...(metaData.pageParam ?? {})}, headers)(),
+      options
+    );
+
+
+useInfiniteGetCartQuery.getKey = (variables?: GetCartQueryVariables) => variables === undefined ? ['getCart.infinite'] : ['getCart.infinite', variables];
+;
+
+useGetCartQuery.fetcher = (client: GraphQLClient, variables?: GetCartQueryVariables, headers?: RequestInit['headers']) => fetcher<GetCartQuery, GetCartQueryVariables>(client, GetCartDocument, variables, headers);
 export const IntrospectionQueryDocument = /*#__PURE__*/ `
     query IntrospectionQuery {
   __schema {
