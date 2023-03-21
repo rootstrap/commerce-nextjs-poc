@@ -9,7 +9,7 @@ query getCart {
             ... on ProductVariant {
               id
               image {
-                src
+                url
               }
               priceV2 {
                 amount
