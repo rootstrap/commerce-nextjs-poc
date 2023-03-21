@@ -2,30 +2,65 @@ import cn from 'clsx'
 import Link from 'next/link'
 import { FC } from 'react'
 import s from './CartSidebarView.module.css'
-import CartItem from '../CartItem'
 import { Button, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import { Bag, Cross, Check } from '@components/icons'
-import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
+import { client } from '@shopify/client'
+import CartItem from '@components/cart/CartItem'
+
+import { useGetCartQuery } from 'shopify/generated/graphql'
 import SidebarLayout from '@components/common/SidebarLayout'
+import { normalizeLineItem } from '@framework/utils/normalize'
+import { ProductVariant } from '@vercel/commerce-shopify/schema'
+import { CheckoutLineItem } from '@vercel/commerce-shopify/schema'
 
 const CartSidebarView: FC = () => {
   const { closeSidebar, setSidebarView } = useUI()
-  const { data, isLoading, isEmpty } = useCart()
+  const { data, isLoading } = useGetCartQuery(client)
+
+  const items =
+    data?.cart &&
+    data.cart.lines.edges.map(({ node }) =>
+      normalizeLineItem({
+        node: {
+          id: node.merchandise.id,
+          title: node.merchandise.title,
+          variant: node.merchandise as ProductVariant,
+          quantity: node.quantity,
+        },
+      } as CheckoutLineItem)
+    )
+
+  const isEmpty = !data
 
   const { price: subTotal } = usePrice(
     data && {
-      amount: Number(data.subtotalPrice),
-      currencyCode: data.currency.code,
+      amount: Number(data.cart?.cost.subtotalAmount.amount),
+      currencyCode: data.cart?.cost.subtotalAmount.currencyCode,
     }
   )
   const { price: total } = usePrice(
     data && {
-      amount: Number(data.totalPrice),
-      currencyCode: data.currency.code,
+      amount: Number(data.cart?.cost.totalAmount.amount),
+      currencyCode: data.cart?.cost.totalAmount.currencyCode,
     }
   )
+
+  const { price: taxTotal } = usePrice(
+    data && {
+      amount: Number(data.cart?.cost?.totalTaxAmount?.amount || 0),
+      currencyCode: data.cart?.cost?.totalTaxAmount?.currencyCode,
+    }
+  )
+
+  const { price: dutyTotal } = usePrice(
+    data && {
+      amount: Number(data.cart?.cost?.totalDutyAmount?.amount || 0),
+      currencyCode: data.cart?.cost?.totalDutyAmount?.currencyCode,
+    }
+  )
+
   const handleClose = () => closeSidebar()
   const goToCheckout = () => setSidebarView('CHECKOUT_VIEW')
 
@@ -80,11 +115,11 @@ const CartSidebarView: FC = () => {
             </Link>
             {data && (
               <ul className={s.lineItemsList}>
-                {data.lineItems.map((item) => (
+                {items?.map((item) => (
                   <CartItem
                     key={item.id}
                     item={item}
-                    currencyCode={data.currency.code}
+                    currencyCode={data.cart?.cost.subtotalAmount.currencyCode}
                   />
                 ))}
               </ul>
@@ -99,11 +134,11 @@ const CartSidebarView: FC = () => {
               </li>
               <li className="flex justify-between py-1">
                 <span>Taxes</span>
-                <span>Calculated at checkout</span>
+                <span>{taxTotal}</span>
               </li>
               <li className="flex justify-between py-1">
                 <span>Shipping</span>
-                <span className="font-bold tracking-wide">FREE</span>
+                <span className="font-bold tracking-wide">{dutyTotal}</span>
               </li>
             </ul>
             <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-2">
