@@ -1,6 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
 import { RequestInit } from 'graphql-request/dist/types.dom';
-import { useQuery, useInfiniteQuery, UseQueryOptions, UseInfiniteQueryOptions } from '@tanstack/react-query';
+import { useMutation, useQuery, useInfiniteQuery, UseMutationOptions, UseQueryOptions, UseInfiniteQueryOptions } from '@tanstack/react-query';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -7106,6 +7106,11 @@ export enum __TypeKind {
   NonNull = 'NON_NULL'
 }
 
+export type CheckoutCreateMutationVariables = Exact<{ [key: string]: never; }>;
+
+
+export type CheckoutCreateMutation = { __typename?: 'Mutation', checkoutCreate?: { __typename?: 'CheckoutCreatePayload', queueToken?: string | null, checkout?: { __typename?: 'Checkout', id: string, lineItems: { __typename?: 'CheckoutLineItemConnection', edges: Array<{ __typename?: 'CheckoutLineItemEdge', node: { __typename?: 'CheckoutLineItem', id: string } }> }, subtotalPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalPrice: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalTax: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalDuties?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } | null, checkoutUserErrors: Array<{ __typename?: 'CheckoutUserError', field?: Array<string> | null, message: string }> } | null };
+
 export type GetAllProductsQueryVariables = Exact<{
   first?: InputMaybe<Scalars['Int']>;
   query?: InputMaybe<Scalars['String']>;
@@ -7119,7 +7124,12 @@ export type GetAllProductsQuery = { __typename?: 'QueryRoot', products: { __type
 export type GetCartQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetCartQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, totalQuantity: number, lines: { __typename?: 'CartLineConnection', edges: Array<{ __typename?: 'CartLineEdge', node: { __typename?: 'CartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, title: string, image?: { __typename?: 'Image', src: any } | null, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, compareAtPriceV2?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } }> }, cost: { __typename?: 'CartCost', totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalTaxAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, totalDutyAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } | null };
+export type GetCartQuery = { __typename?: 'QueryRoot', cart?: { __typename?: 'Cart', id: string, totalQuantity: number, lines: { __typename?: 'CartLineConnection', edges: Array<{ __typename?: 'CartLineEdge', node: { __typename?: 'CartLine', id: string, quantity: number, merchandise: { __typename?: 'ProductVariant', id: string, title: string, image?: { __typename?: 'Image', url: any } | null, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, compareAtPriceV2?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } }> }, cost: { __typename?: 'CartCost', totalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, subtotalAmount: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalTaxAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, totalDutyAmount?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null } } | null };
+
+export type GetCheckoutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type GetCheckoutQuery = { __typename?: 'QueryRoot', node?: { __typename?: 'AppliedGiftCard', id: string } | { __typename?: 'Article', id: string } | { __typename?: 'Blog', id: string } | { __typename?: 'Cart', id: string } | { __typename?: 'CartLine', id: string } | { __typename?: 'Checkout', id: string, webUrl: any, completedAt?: any | null, createdAt: any, taxesIncluded: boolean, subtotalPriceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalTaxV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, totalDuties?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, totalPriceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, shippingAddress?: { __typename?: 'MailingAddress', address1?: string | null, city?: string | null, country?: string | null, firstName?: string | null, lastName?: string | null, zip?: string | null, phone?: string | null, company?: string | null, address2?: string | null, countryCodeV2?: CountryCode | null, id: string } | null, lineItems: { __typename?: 'CheckoutLineItemConnection', pageInfo: { __typename?: 'PageInfo', hasNextPage: boolean, hasPreviousPage: boolean }, edges: Array<{ __typename?: 'CheckoutLineItemEdge', node: { __typename?: 'CheckoutLineItem', id: string, title: string, quantity: number, variant?: { __typename?: 'ProductVariant', id: string, sku?: string | null, title: string, selectedOptions: Array<{ __typename?: 'SelectedOption', name: string, value: string }>, image?: { __typename?: 'Image', url: any, altText?: string | null, width?: number | null, height?: number | null } | null, priceV2: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode }, compareAtPriceV2?: { __typename?: 'MoneyV2', amount: any, currencyCode: CurrencyCode } | null, product: { __typename?: 'Product', handle: string } } | null } }> } } | { __typename?: 'CheckoutLineItem', id: string } | { __typename?: 'Collection', id: string } | { __typename?: 'Comment', id: string } | { __typename?: 'ExternalVideo', id: string } | { __typename?: 'GenericFile', id: string } | { __typename?: 'Location', id: string } | { __typename?: 'MailingAddress', id: string } | { __typename?: 'MediaImage', id: string } | { __typename?: 'Menu', id: string } | { __typename?: 'MenuItem', id: string } | { __typename?: 'Metafield', id: string } | { __typename?: 'Metaobject', id: string } | { __typename?: 'Model3d', id: string } | { __typename?: 'Order', id: string } | { __typename?: 'Page', id: string } | { __typename?: 'Payment', id: string } | { __typename?: 'Product', id: string } | { __typename?: 'ProductOption', id: string } | { __typename?: 'ProductVariant', id: string } | { __typename?: 'Shop', id: string } | { __typename?: 'ShopPolicy', id: string } | { __typename?: 'UrlRedirect', id: string } | { __typename?: 'Video', id: string } | null };
 
 export type IntrospectionQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7195,6 +7205,59 @@ export const FullTypeFragmentDoc = /*#__PURE__*/ `
 }
     ${InputValueFragmentDoc}
 ${TypeRefFragmentDoc}`;
+export const CheckoutCreateDocument = /*#__PURE__*/ `
+    mutation checkoutCreate {
+  checkoutCreate(
+    input: {lineItems: [{variantId: "gid://shopify/ProductVariant/44730370097456", quantity: 2}]}
+  ) {
+    checkout {
+      id
+      lineItems(first: 10) {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+      subtotalPrice {
+        amount
+        currencyCode
+      }
+      totalPrice {
+        amount
+        currencyCode
+      }
+      totalTax {
+        amount
+        currencyCode
+      }
+      totalDuties {
+        amount
+        currencyCode
+      }
+    }
+    checkoutUserErrors {
+      field
+      message
+    }
+    queueToken
+  }
+}
+    `;
+export const useCheckoutCreateMutation = <
+      TError = unknown,
+      TContext = unknown
+    >(
+      client: GraphQLClient,
+      options?: UseMutationOptions<CheckoutCreateMutation, TError, CheckoutCreateMutationVariables, TContext>,
+      headers?: RequestInit['headers']
+    ) =>
+    useMutation<CheckoutCreateMutation, TError, CheckoutCreateMutationVariables, TContext>(
+      ['checkoutCreate'],
+      (variables?: CheckoutCreateMutationVariables) => fetcher<CheckoutCreateMutation, CheckoutCreateMutationVariables>(client, CheckoutCreateDocument, variables, headers)(),
+      options
+    );
+useCheckoutCreateMutation.fetcher = (client: GraphQLClient, variables?: CheckoutCreateMutationVariables, headers?: RequestInit['headers']) => fetcher<CheckoutCreateMutation, CheckoutCreateMutationVariables>(client, CheckoutCreateDocument, variables, headers);
 export const GetAllProductsDocument = /*#__PURE__*/ `
     query getAllProducts($first: Int = 250, $query: String = "", $sortKey: ProductSortKeys = RELEVANCE, $reverse: Boolean = false) {
   products(first: $first, sortKey: $sortKey, reverse: $reverse, query: $query) {
@@ -7286,7 +7349,7 @@ export const GetCartDocument = /*#__PURE__*/ `
             ... on ProductVariant {
               id
               image {
-                src
+                url
               }
               priceV2 {
                 amount
@@ -7364,6 +7427,129 @@ useInfiniteGetCartQuery.getKey = (variables?: GetCartQueryVariables) => variable
 ;
 
 useGetCartQuery.fetcher = (client: GraphQLClient, variables?: GetCartQueryVariables, headers?: RequestInit['headers']) => fetcher<GetCartQuery, GetCartQueryVariables>(client, GetCartDocument, variables, headers);
+export const GetCheckoutDocument = /*#__PURE__*/ `
+    query getCheckout {
+  node(
+    id: "gid://shopify/Checkout/c0e343a6f76833d5cbf9e54fc023224f?key=c753dd1d7d6b724675cbac816b8e5e49"
+  ) {
+    id
+    ... on Checkout {
+      id
+      webUrl
+      subtotalPriceV2 {
+        amount
+        currencyCode
+      }
+      totalTaxV2 {
+        amount
+        currencyCode
+      }
+      totalDuties {
+        amount
+        currencyCode
+      }
+      totalPriceV2 {
+        amount
+        currencyCode
+      }
+      completedAt
+      createdAt
+      taxesIncluded
+      shippingAddress {
+        address1
+        city
+        country
+        firstName
+        lastName
+        zip
+        phone
+        company
+        address2
+        countryCodeV2
+        id
+      }
+      lineItems(first: 250) {
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+        }
+        edges {
+          node {
+            id
+            title
+            variant {
+              id
+              sku
+              title
+              selectedOptions {
+                name
+                value
+              }
+              image {
+                url
+                altText
+                width
+                height
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              compareAtPriceV2 {
+                amount
+                currencyCode
+              }
+              product {
+                handle
+              }
+            }
+            quantity
+          }
+        }
+      }
+    }
+  }
+}
+    `;
+export const useGetCheckoutQuery = <
+      TData = GetCheckoutQuery,
+      TError = unknown
+    >(
+      client: GraphQLClient,
+      variables?: GetCheckoutQueryVariables,
+      options?: UseQueryOptions<GetCheckoutQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useQuery<GetCheckoutQuery, TError, TData>(
+      variables === undefined ? ['getCheckout'] : ['getCheckout', variables],
+      fetcher<GetCheckoutQuery, GetCheckoutQueryVariables>(client, GetCheckoutDocument, variables, headers),
+      options
+    );
+
+useGetCheckoutQuery.getKey = (variables?: GetCheckoutQueryVariables) => variables === undefined ? ['getCheckout'] : ['getCheckout', variables];
+;
+
+export const useInfiniteGetCheckoutQuery = <
+      TData = GetCheckoutQuery,
+      TError = unknown
+    >(
+      pageParamKey: keyof GetCheckoutQueryVariables,
+      client: GraphQLClient,
+      variables?: GetCheckoutQueryVariables,
+      options?: UseInfiniteQueryOptions<GetCheckoutQuery, TError, TData>,
+      headers?: RequestInit['headers']
+    ) =>
+    useInfiniteQuery<GetCheckoutQuery, TError, TData>(
+      variables === undefined ? ['getCheckout.infinite'] : ['getCheckout.infinite', variables],
+      (metaData) => fetcher<GetCheckoutQuery, GetCheckoutQueryVariables>(client, GetCheckoutDocument, {...variables, ...(metaData.pageParam ?? {})}, headers)(),
+      options
+    );
+
+
+useInfiniteGetCheckoutQuery.getKey = (variables?: GetCheckoutQueryVariables) => variables === undefined ? ['getCheckout.infinite'] : ['getCheckout.infinite', variables];
+;
+
+useGetCheckoutQuery.fetcher = (client: GraphQLClient, variables?: GetCheckoutQueryVariables, headers?: RequestInit['headers']) => fetcher<GetCheckoutQuery, GetCheckoutQueryVariables>(client, GetCheckoutDocument, variables, headers);
 export const IntrospectionQueryDocument = /*#__PURE__*/ `
     query IntrospectionQuery {
   __schema {

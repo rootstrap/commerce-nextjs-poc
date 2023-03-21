@@ -1,0 +1,82 @@
+query getCheckout {
+  node(
+    id: "gid://shopify/Checkout/c0e343a6f76833d5cbf9e54fc023224f?key=c753dd1d7d6b724675cbac816b8e5e49"
+  ) {
+    id
+    ... on Checkout {
+      id
+      webUrl
+      subtotalPriceV2 {
+        amount
+        currencyCode
+      }
+      totalTaxV2 {
+        amount
+        currencyCode
+      }
+      totalDuties {
+        amount
+        currencyCode
+      }
+      totalPriceV2 {
+        amount
+        currencyCode
+      }
+      completedAt
+      createdAt
+      taxesIncluded
+      shippingAddress {
+        address1
+        city
+        country
+        firstName
+        lastName
+        zip
+        phone
+        company
+        address2
+        countryCodeV2
+        id
+      }
+      lineItems(first: 250) {
+        pageInfo {
+          hasNextPage
+          hasPreviousPage
+        }
+        edges {
+          node {
+            id
+            title
+            variant {
+              id
+              sku
+              title
+              selectedOptions {
+                name
+                value
+              }
+              image {
+                url
+                altText
+                width
+                height
+              }
+              priceV2 {
+                amount
+                currencyCode
+              }
+              compareAtPriceV2 {
+                amount
+                currencyCode
+              }
+              product {
+                handle
+              }
+            }
+            quantity
+          }
+        }
+      }
+    }
+  }
+}
