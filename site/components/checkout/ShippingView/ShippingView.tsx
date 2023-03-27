@@ -4,9 +4,13 @@ import cn from 'clsx'
 import Button from '@components/ui/Button'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
-import useAddAddress from '@framework/customer/address/use-add-item'
+import {
+  useCheckoutShippingAddressUpdateV2Mutation,
+  useGetCheckoutQuery,
+} from '@shopify/generated/graphql'
 
 import s from './ShippingView.module.css'
+import { client } from '@shopify/client'
 
 interface Form extends HTMLFormElement {
   cardHolder: HTMLInputElement
@@ -24,24 +28,28 @@ interface Form extends HTMLFormElement {
 
 const ShippingView: FC = () => {
   const { setSidebarView } = useUI()
-  const addAddress = useAddAddress()
+  const { mutate: addAddress } =
+    useCheckoutShippingAddressUpdateV2Mutation(client)
 
+  const { data } = useGetCheckoutQuery(client)
   async function handleSubmit(event: React.ChangeEvent<Form>) {
     event.preventDefault()
-
-    await addAddress({
-      type: event.target.type.value,
-      firstName: event.target.firstName.value,
-      lastName: event.target.lastName.value,
-      company: event.target.company.value,
-      streetNumber: event.target.streetNumber.value,
-      apartments: event.target.streetNumber.value,
-      zipCode: event.target.zipCode.value,
-      city: event.target.city.value,
-      country: event.target.country.value,
-    })
-
-    setSidebarView('CHECKOUT_VIEW')
+    if (data?.node) {
+      await addAddress({
+        checkoutId: data.node.id,
+        shippingAddress: {
+          firstName: event.target.firstName.value,
+          lastName: event.target.lastName.value,
+          company: event.target.company.value,
+          address1: event.target.streetNumber.value,
+          address2: event.target.streetNumber.value,
+          zip: event.target.zipCode.value,
+          city: event.target.city.value,
+          country: event.target.country.value,
+        },
+      })
+      setSidebarView('CHECKOUT_VIEW')
+    }
   }
 
   return (
@@ -100,7 +108,7 @@ const ShippingView: FC = () => {
             <div className={s.fieldset}>
               <label className={s.label}>Country/Region</label>
               <select name="country" className={s.select}>
-                <option>Hong Kong</option>
+                <option>United States</option>
               </select>
             </div>
           </div>

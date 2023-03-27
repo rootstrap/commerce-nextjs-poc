@@ -1,0 +1,28 @@
+mutation checkoutShippingAddressUpdateV2(
+  $checkoutId: ID!
+  $shippingAddress: MailingAddressInput!
+) {
+  checkoutShippingAddressUpdateV2(
+    checkoutId: $checkoutId
+    shippingAddress: $shippingAddress
+  ) {
+    checkout {
+      shippingAddress {
+        id
+        address1
+        address2
+        city
+        countryCodeV2
+        company
+        firstName
+        lastName
+        province
+        zip
+      }
+    }
+    checkoutUserErrors {
+      code
+      message
+    }
+  }
+}

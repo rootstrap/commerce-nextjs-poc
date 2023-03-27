@@ -1,38 +1,26 @@
 import Link from 'next/link'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import CartItem from '@components/cart/CartItem'
 import { Button, Text } from '@components/ui'
 import { useUI } from '@components/ui/context'
 import SidebarLayout from '@components/common/SidebarLayout'
-import useCart from '@framework/cart/use-cart'
 import usePrice from '@framework/product/use-price'
-import useCheckout from '@framework/checkout/use-checkout'
+import { client } from '@shopify/client'
+import { useGetCheckoutQuery } from 'shopify/generated/graphql'
 import ShippingWidget from '../ShippingWidget'
-import PaymentWidget from '../PaymentWidget'
 import s from './CheckoutSidebarView.module.css'
-import { useCheckoutContext } from '../context'
+import { normalizeCart } from '@framework/utils/normalize'
+import { Checkout } from '@vercel/commerce-shopify/schema'
 
 const CheckoutSidebarView: FC = () => {
-  const [loadingSubmit, setLoadingSubmit] = useState(false)
-  const { setSidebarView, closeSidebar } = useUI()
-  const { data: cartData, mutate: refreshCart } = useCart()
-  const { data: checkoutData, submit: onCheckout } = useCheckout()
-  const { clearCheckoutFields } = useCheckoutContext()
+  const { setSidebarView } = useUI()
+  const { data } = useGetCheckoutQuery(client)
+
+  const cartData = data && normalizeCart(data.node as Checkout)
 
   async function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    try {
-      setLoadingSubmit(true)
-      event.preventDefault()
-
-      await onCheckout()
-      clearCheckoutFields()
-      setLoadingSubmit(false)
-      refreshCart()
-      closeSidebar()
-    } catch {
-      // TODO - handle error UI here.
-      setLoadingSubmit(false)
-    }
+    event.preventDefault()
+    setSidebarView('PAYMENT_VIEW')
   }
 
   const { price: subTotal } = usePrice(
@@ -48,6 +36,20 @@ const CheckoutSidebarView: FC = () => {
     }
   )
 
+  const { price: taxTotal } = usePrice(
+    data && {
+      amount: Number(data.node?.totalTaxV2?.amount || 0),
+      currencyCode: data.node?.totalTaxV2?.currencyCode || '',
+    }
+  )
+
+  const { price: dutiesTotal } = usePrice(
+    data && {
+      amount: Number(data.node?.totalDuties?.amount || 0),
+      currencyCode: data.node?.totalDuties?.currencyCode || '',
+    }
+  )
+
   return (
     <SidebarLayout
       className={s.root}
@@ -58,12 +60,8 @@ const CheckoutSidebarView: FC = () => {
           <Text variant="sectionHeading">Checkout</Text>
         </Link>
 
-        <PaymentWidget
-          isValid={checkoutData?.hasPayment}
-          onClick={() => setSidebarView('PAYMENT_VIEW')}
-        />
         <ShippingWidget
-          isValid={checkoutData?.hasShipping}
+          isValid={data?.node?.shippingAddress}
           onClick={() => setSidebarView('SHIPPING_VIEW')}
         />
 
@@ -92,11 +90,13 @@ const CheckoutSidebarView: FC = () => {
           </li>
           <li className="flex justify-between py-1">
             <span>Taxes</span>
-            <span>Calculated at checkout</span>
+            <span>{taxTotal}</span>
           </li>
           <li className="flex justify-between py-1">
             <span>Shipping</span>
-            <span className="font-bold tracking-wide">FREE</span>
+            <span className="font-bold tracking-wide">
+              {dutiesTotal || 'FREE'}
+            </span>
           </li>
         </ul>
         <div className="flex justify-between border-t border-accent-2 py-3 font-bold mb-2">
@@ -108,8 +108,7 @@ const CheckoutSidebarView: FC = () => {
           <Button
             type="submit"
             width="100%"
-            disabled={!checkoutData?.hasPayment || !checkoutData?.hasShipping}
-            loading={loadingSubmit}
+            disabled={!data?.node?.shippingAddress}
           >
             Confirm Purchase
           </Button>

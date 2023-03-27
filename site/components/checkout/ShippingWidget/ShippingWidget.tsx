@@ -12,7 +12,7 @@ const ShippingWidget: FC<ComponentProps> = ({ onClick, isValid }) => {
   Only available with checkout set to true -
   This means that the provider does offer checkout functionality. */
   return (
-    <div onClick={onClick} className={s.root}>
+    <button onClick={onClick} className={s.root} disabled={isValid}>
       <div className="flex flex-1 items-center">
         <MapPin className="w-5 flex" />
         <span className="ml-5 text-sm text-center font-medium">
@@ -24,7 +24,7 @@ const ShippingWidget: FC<ComponentProps> = ({ onClick, isValid }) => {
         </span> */}
       </div>
       <div>{isValid ? <Check /> : <ChevronRight />}</div>
-    </div>
+    </button>
   )
 }
 
